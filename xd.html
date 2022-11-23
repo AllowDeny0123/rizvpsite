@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Главная</title>
+    <meta name="description" content="xdxdxdxd">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="section">
+    <div id="header">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О сайте</a>
+        <a href="joke.html">Анекдот</a>
+        <a href="xd.html" class="active">XD</a>
+        <a href="secret.html">[123123]</a>
+    </div>
+    <div id="content-wrapper">
+        <div id="content-block">
+            <h1>Peepo Clicker</h1>
+        </div>
+        <div id="content-block" class="clickcounter">Количество кликов: 0</div>
+        <div id="content-block" class="rotcounter">Количество оборотов: 0</div>
+        <div id="image-block" class="centered">
+            <img id="image" onclick="ImageRotater()" src="img/1.gif">
+        </div>
+        <script>
+            var i = 0.0;
+            changeimage((i % 500) / 100)
+            function changeimage(count) {
+                document.getElementById('image').src = `img/${count}.gif`
+
+            }
+            function ImageRotater() {
+                var _imageid = document.getElementById('image');
+                var _clickid = document.getElementsByClassName('clickcounter').item('content-block');
+                var _counterid = document.getElementsByClassName('rotcounter').item('content-block');
+                _imageid.style.transform = `rotate(${0.01 * i}turn)`;
+                i++;
+                _clickid.innerHTML = `Количество кликов: ${Math.floor(i)}`
+                _counterid.innerHTML = `Количество оборотов: ${Math.floor((i * 3.6) / 360)}`;
+                if (i % 100 == 0) {
+                    changeimage((i % 500) / 100)
+                }
+            }
+        </script>
+    </div>
+    </div>
+    </div>
+    <div id="footer" class="centered">
+        <a href="index.html">Главная</a>
+        <a href="about.html">О сайте</a>
+        <a href="joke.html">Анекдот</a>
+        <a href="xd.html">XD</a>
+        <a href="secret.html">[123123]</a>
+    </div>
+</body>
+
+</html>
